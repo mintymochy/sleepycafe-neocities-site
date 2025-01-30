@@ -6,16 +6,15 @@ let totalGlass = 0;
 let baseMultiplier = 1;
 let autoClickerAmount = 0;
 let x = 1;
-let demand = 1.0;
+let demand = 1;
 let price = 1.0;
 let sand = 1500;
 let sandused = 10;
 
 function onload() {}
-//lbahhhh
+
 setInterval(function () {
   if (glass > 0) {
-    glass -= x;
     console.log("glass cube sold!");
     sellPeanut(x);
     document.getElementById("UnsoldGlassCubes").innerHTML =
