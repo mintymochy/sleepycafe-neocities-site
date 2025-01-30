@@ -9,7 +9,7 @@ let x = 1;
 let demand = 1;
 let price = 1.0;
 let sand = 1500;
-let sandused = 10;
+const sandused = 10;
 
 function onload() {}
 
