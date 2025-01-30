@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML5 Boilerplate</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+
+<body onload="onload()">
+    <h1>Glass</h1>
+    <hr>
+    <div id="leftcolumn">
+        <div id="clickingArea">
+            <h2 id="glassAmount">Glass Cubes: 0</h2>
+            <button class="button" id="makeGlassButton" onclick="add()">make glass cube</button>
+
+        </div>
+        <hr>
+        <div id="revenueArea">
+            <p id="money">Money: $0</p>
+            <P id="UnsoldGlassCubes">Unsold Glass Cubes</P>
+            <p id="dollarspersecond">Glass Cubes sold per second: 0</p>
+            <p>Price Per Glass Cube: 2</p>
+        </div>
+        <hr>
+        <div id="buyingsand">
+            <p>lbs of Sand: 1500</p>
+            <button>Buy Sand</button>
+            <span>0</span>
+
+        </div>
+        <hr>
+        <div id="upgrades">
+            <button onclick="buyAutoClicker()">Auto Glassmaker</button>
+            <span id="autoClicker">0</span>
+        </div>
+    </div>
+</body>
+
+</html>
