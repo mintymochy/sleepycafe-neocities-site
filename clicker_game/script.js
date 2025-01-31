@@ -10,6 +10,8 @@ let demand = 1;
 let price = 1.0;
 let sand = 1500;
 const sandused = 10;
+let time = 100;
+let sellTime = 800;
 
 function onload() {}
 
@@ -22,7 +24,7 @@ setInterval(function () {
     document.getElementById("glassAmount").innerHTML =
       "Glass Cubes: " + totalGlass;
   }
-}, 1100);
+}, sellTime);
 
 function add() {
   glass++;
@@ -33,6 +35,7 @@ function add() {
     "Unsold Glass Cubes: " + glass;
   document.getElementById("glassAmount").innerHTML =
     "Glass Cubes: " + totalGlass;
+  document.getElementById("sandAmount").innerHTML = sand + " lbs";
 }
 
 setInterval(function () {
@@ -40,12 +43,14 @@ setInterval(function () {
   sand -= sandused * autoClickerAmount;
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes:  " + glass;
-}, 1000);
+  document.getElementById("sandAmount").innerHTML = sand + " lbs";
+}, time);
 
 function buyAutoClicker() {
   autoClickerAmount++;
-  document.getElementById("UnsoldGlassCubes").innerHTML = autoClickerAmount;
+  document.getElementById("autoClickers").innerHTML = autoClickerAmount;
 }
+function buySand() {}
 
 function sellPeanut(soldGlassCubes) {
   glass -= demand;
