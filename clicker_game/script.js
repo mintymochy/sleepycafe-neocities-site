@@ -55,11 +55,11 @@ function add() {
     "Glass Cubes: " + totalGlass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
 }
-
+//autoclickers
 setInterval(function () {
   glass += autoClickerAmount * baseMultiplier;
   sand -= sandused * autoClickerAmount;
-  totalGlass++;
+  totalGlass += autoClickerAmount * baseMultiplier;
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes:  " + glass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
