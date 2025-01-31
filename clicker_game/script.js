@@ -5,6 +5,7 @@ let glass = 0;
 let totalGlass = 0;
 let baseMultiplier = 1;
 let autoClickerAmount = 0;
+let autoClickerPrice = 10;
 let x = 1;
 let demand = 1;
 let price = 1.0;
@@ -29,6 +30,7 @@ function onload() {
 setInterval(function () {
   sandprice = sandPrice[Math.floor(Math.random() * 7)];
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
+  document.getElementById("money").innerHTML = "Money: $" + money;
 }, sandPriceTimer);
 
 setInterval(function () {
@@ -63,14 +65,20 @@ setInterval(function () {
 }, time);
 
 function buyAutoClicker() {
-  autoClickerAmount++;
+  if (money >= autoClickerPrice) {
+    autoClickerAmount++;
+    money -= autoClickerPrice;
+  }
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
+  document.getElementById("money").innerHTML = "Money: $" + money;
 }
 function buySand() {
   if (money >= sandprice) {
     sand += boughtSand;
     money -= sandPrice;
   }
+  document.getElementById("autoClickers").innerHTML = autoClickerAmount;
+  document.getElementById("money").innerHTML = "Money: $" + money;
 }
 
 function sellPeanut(soldGlassCubes) {
