@@ -59,6 +59,7 @@ function add() {
 setInterval(function () {
   glass += autoClickerAmount * baseMultiplier;
   sand -= sandused * autoClickerAmount;
+  totalGlass++;
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes:  " + glass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
@@ -75,7 +76,7 @@ function buyAutoClicker() {
 function buySand() {
   if (money >= sandprice) {
     sand += boughtSand;
-    money -= sandPrice;
+    money -= sandprice;
   }
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
   document.getElementById("money").innerHTML = "Money: $" + money;
