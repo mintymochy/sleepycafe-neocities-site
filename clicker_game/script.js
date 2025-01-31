@@ -9,9 +9,9 @@ let x = 1;
 let demand = 1;
 let price = 1.0;
 let sand = 1500;
-const sandused = 10;
-let time = 100;
-let sellTime = 800;
+const sandused = 5;
+let time = 1000;
+let sellTime = 2000;
 
 function onload() {}
 
