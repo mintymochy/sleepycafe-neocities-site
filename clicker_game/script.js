@@ -1,6 +1,6 @@
 console.log("Main.js loaded!");
 
-let money = 0;
+let money = 1000;
 let glass = 0;
 let totalGlass = 0;
 let baseMultiplier = 1;
@@ -12,8 +12,24 @@ let sand = 1500;
 const sandused = 5;
 let time = 1000;
 let sellTime = 2000;
+let sandPrice = [20, 17, 15, 12, 11, 18, 19];
+let sandprice = 20;
+let boughtSand = 1500;
+const sandPriceTimer = 10000;
 
-function onload() {}
+function onload() {
+  document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
+  document.getElementById("money").innerHTML = "Money: $" + money;
+  document.getElementById("UnsoldGlassCubes").innerHTML =
+    "Unsold Glass Cubes: " + glass;
+  document.getElementById("glassAmount").innerHTML =
+    "Glass Cubes: " + totalGlass;
+}
+
+setInterval(function () {
+  sandprice = sandPrice[Math.floor(Math.random() * 7)];
+  document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
+}, sandPriceTimer);
 
 setInterval(function () {
   if (glass > 0) {
@@ -50,7 +66,12 @@ function buyAutoClicker() {
   autoClickerAmount++;
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
 }
-function buySand() {}
+function buySand() {
+  if (money >= sandprice) {
+    sand += boughtSand;
+    money -= sandPrice;
+  }
+}
 
 function sellPeanut(soldGlassCubes) {
   glass -= demand;
