@@ -27,12 +27,14 @@ function onload() {
     "Glass Cubes: " + totalGlass;
 }
 
+//changing the sand price every 10? seconds
 setInterval(function () {
   sandprice = sandPrice[Math.floor(Math.random() * 7)];
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
   document.getElementById("money").innerHTML = "Money: $" + money;
 }, sandPriceTimer);
 
+//selling glass cubes
 setInterval(function () {
   if (glass > 0) {
     console.log("glass cube sold!");
@@ -55,6 +57,7 @@ function add() {
     "Glass Cubes: " + totalGlass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
 }
+
 //autoclickers
 setInterval(function () {
   glass += autoClickerAmount * baseMultiplier;
@@ -73,6 +76,7 @@ function buyAutoClicker() {
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
   document.getElementById("money").innerHTML = "Money: $" + money;
 }
+
 function buySand() {
   if (money >= sandprice) {
     sand += boughtSand;
