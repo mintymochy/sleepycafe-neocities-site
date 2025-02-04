@@ -10,33 +10,33 @@
 </head>
 
 <body onload="onload()">
-    <h1>Glass</h1>
+    <h1 class="text" id="heading">Glass</h1>
     <hr>
     <div id="leftcolumn">
         <div id="clickingArea">
-            <h2 id="glassAmount">Glass Cubes: 0</h2>
+            <h2 class="text" id="glassAmount">Glass Cubes: 0</h2>
             <button class="button" id="makeGlassButton" onclick="add()">make glass cube</button>
 
         </div>
         <hr>
         <div id="revenueArea">
-            <p id="money">Money: $0</p>
-            <p id="UnsoldGlassCubes">Unsold Glass Cubes: 0</p>
-            <p id="dollarspersecond">Glass Cubes sold per second: 0</p>
-            <p>Price Per Glass Cube: $2</p>
+            <p class="text" id="money">Money: $0</p>
+            <p class="text" id="UnsoldGlassCubes">Unsold Glass Cubes: 0</p>
+            <p class="text" id="dollarspersecond">Glass Cubes sold per second: 0</p>
+            <p class="text" id="pricePerCube">Price Per Glass Cube: $2</p>
         </div>  
         <hr>
         <div id="buyingsand">
-            <button onclick="buySand()">Buy Sand</button>
-            <span id="sandAmount">1500 lbs</span>
-            <p id="sandPrice">Cost: </p>
+            <button class="button" onclick="buySand()">Buy Sand</button>
+            <span class="text" id="sandAmount">1500 lbs</span>
+            <p class="text" id="sandPrice">Cost: </p>
 
         </div>
         <hr>
         <div id="upgrades">
-            <button onclick="buyAutoClicker()">Auto Glassmaker</button>
-            <span id="autoClickers">0</span>
-            <p>Cost: $10</p>
+            <button class="button" onclick="buyAutoClicker()">Auto Glassmaker</button>
+            <span class="text" id="autoClickers">0</span>
+            <p class="text" id="autoMakerCost">Cost: $10</p>
         </div>
     </div>
 </body>
