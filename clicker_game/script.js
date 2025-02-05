@@ -25,6 +25,7 @@ function onload() {
     "Unsold Glass Cubes: " + glass;
   document.getElementById("glassAmount").innerHTML =
     "Glass Cubes: " + totalGlass;
+  console.log("Main.js Loaded again!");
 }
 
 //changing the sand price every 10? seconds
@@ -32,6 +33,7 @@ setInterval(function () {
   sandprice = sandPrice[Math.floor(Math.random() * 7)];
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
   document.getElementById("money").innerHTML = "Money: $" + money;
+  console.log("sold cube");
 }, sandPriceTimer);
 
 //selling glass cubes
@@ -50,12 +52,12 @@ function add() {
   glass++;
   totalGlass++;
   sand -= sandused;
-  console.log("click");
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes: " + glass;
   document.getElementById("glassAmount").innerHTML =
     "Glass Cubes: " + totalGlass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
+  console.log("glass cube made!");
 }
 
 //autoclickers
@@ -66,6 +68,7 @@ setInterval(function () {
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes:  " + glass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
+  console.log("autoclicker clicked");
 }, time);
 
 function buyAutoClicker() {
@@ -75,6 +78,7 @@ function buyAutoClicker() {
   }
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
   document.getElementById("money").innerHTML = "Money: $" + money;
+  console.log("Autoclicker Bought!");
 }
 
 function buySand() {
@@ -84,6 +88,7 @@ function buySand() {
   }
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
   document.getElementById("money").innerHTML = "Money: $" + money;
+  console.log("Sand Bought!");
 }
 
 function sellPeanut(soldGlassCubes) {
@@ -94,6 +99,9 @@ function sellPeanut(soldGlassCubes) {
 
 function buySomething(cash) {
   money -= cash;
+}
+function changeCubeSize() {
+  console.log("cube size");
 }
 
 function upgrade() {
