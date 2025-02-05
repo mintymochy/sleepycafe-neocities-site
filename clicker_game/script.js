@@ -18,6 +18,7 @@ let sandprice = 20;
 let boughtSand = 1500;
 const sandPriceTimer = 10000;
 
+//onload
 function onload() {
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
   document.getElementById("money").innerHTML = "Money: $" + money;
@@ -48,6 +49,7 @@ setInterval(function () {
   }
 }, sellTime);
 
+// making new cubes
 function add() {
   glass++;
   totalGlass++;
@@ -101,13 +103,14 @@ function buySomething(cash) {
   money -= cash;
 }
 function changeCubeSize() {
-  console.log("cube size");
+  console.log("cube size changed");
 }
 
 function upgrade() {
   baseMultiplier += 0.1;
 }
 
+//lightmode
 function lightmode() {
   getComputedStyle(document.documentElement).getPropertyValue(
     "--background-color"
@@ -131,6 +134,8 @@ function lightmode() {
   );
   document.documentElement.style.setProperty("--button-border-color", "#000");
 }
+
+// darkmode
 function darkmode() {
   getComputedStyle(document.documentElement).getPropertyValue(
     "--background-color"
