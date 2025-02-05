@@ -112,12 +112,16 @@ function lightmode() {
   );
   document.documentElement.style.setProperty(
     "--button-background-color",
-    "#989898"
+    "#d0d0d0"
   );
   getComputedStyle(document.documentElement).getPropertyValue(
     "--button-text-color"
   );
   document.documentElement.style.setProperty("--button-text-color", "#000");
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-border-color"
+  );
+  document.documentElement.style.setProperty("--button-border-color", "#000");
 }
 function darkmode() {
   getComputedStyle(document.documentElement).getPropertyValue(
@@ -137,4 +141,8 @@ function darkmode() {
     "--button-text-color"
   );
   document.documentElement.style.setProperty("--button-text-color", "#fff");
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-border-color"
+  );
+  document.documentElement.style.setProperty("--button-border-color", "#fff");
 }

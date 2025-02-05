@@ -3,6 +3,7 @@
     --text-color: #fff;
     --button-background-color: #424242;
     --button-text-color: #fff;
+    --button-border-color: #fff;
 }
 
 body {
@@ -13,4 +14,5 @@ body {
 button {
     background-color: var(--button-background-color);
     color: var(--button-text-color);
+    border-color: var(--button-border-color);
 }
