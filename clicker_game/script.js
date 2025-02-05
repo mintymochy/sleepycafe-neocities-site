@@ -99,3 +99,42 @@ function buySomething(cash) {
 function upgrade() {
   baseMultiplier += 0.1;
 }
+
+function lightmode() {
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--background-color"
+  );
+  document.documentElement.style.setProperty("--background-color", "#fff");
+  getComputedStyle(document.documentElement).getPropertyValue("--text-color");
+  document.documentElement.style.setProperty("--text-color", "#000");
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-background-color"
+  );
+  document.documentElement.style.setProperty(
+    "--button-background-color",
+    "#989898"
+  );
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-text-color"
+  );
+  document.documentElement.style.setProperty("--button-text-color", "#000");
+}
+function darkmode() {
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--background-color"
+  );
+  document.documentElement.style.setProperty("--background-color", "#000");
+  getComputedStyle(document.documentElement).getPropertyValue("--text-color");
+  document.documentElement.style.setProperty("--text-color", "#fff");
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-background-color"
+  );
+  document.documentElement.style.setProperty(
+    "--button-background-color",
+    "#424242"
+  );
+  getComputedStyle(document.documentElement).getPropertyValue(
+    "--button-text-color"
+  );
+  document.documentElement.style.setProperty("--button-text-color", "#fff");
+}
