@@ -1,5 +1,5 @@
 console.log("Main.js loaded!");
-
+let perSecond = 0;
 let money = 1000;
 let glass = 0;
 let totalGlass = 0;
