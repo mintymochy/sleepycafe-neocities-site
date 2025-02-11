@@ -83,6 +83,11 @@ function buyAutoClicker() {
   console.log("Autoclicker Bought!");
 }
 
+//change the size of the cubes
+function changeCubeSize(x) {
+  let size = x;
+}
+
 function buySand() {
   if (money >= sandprice) {
     sand += boughtSand;
