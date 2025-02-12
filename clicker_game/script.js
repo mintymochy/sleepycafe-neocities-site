@@ -85,7 +85,13 @@ function buyAutoClicker() {
 
 //change the size of the cubes
 function changeCubeSize(x) {
-  let size = x;
+  let x = x;
+  if (x) {
+    demand + 0.05;
+  } else {
+    demand - 0.05;
+  }
+  document.getElementById(demand).innerHTML = "Public Demand: " + demand * 100;
 }
 
 function buySand() {
