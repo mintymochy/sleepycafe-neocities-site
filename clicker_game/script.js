@@ -7,7 +7,7 @@ let baseMultiplier = 1;
 let autoClickerAmount = 0;
 let autoClickerPrice = 10;
 let x = 1;
-let demand = 1;
+let demand = 1.0;
 let price = 1.0;
 let sand = 1500;
 const sandused = 5;
@@ -49,7 +49,6 @@ setInterval(function () {
   }
 }, sellTime);
 
-// making new cubes
 function add() {
   glass++;
   totalGlass++;
@@ -85,13 +84,15 @@ function buyAutoClicker() {
 
 //change the size of the cubes
 function changeCubeSize(x) {
-  let x = x;
   if (x) {
-    demand + 0.05;
+    demand += 0.05;
+    console.log("size up");
   } else {
-    demand - 0.05;
+    demand -= 0.05;
+    console.log("size down");
   }
-  document.getElementById(demand).innerHTML = "Public Demand: " + demand * 100;
+  document.getElementById("demand").innerHTML =
+    "Public Demand: " + demand.toFixed(5) * 100 + "%";
 }
 
 function buySand() {
@@ -101,7 +102,7 @@ function buySand() {
   }
   document.getElementById("autoClickers").innerHTML = autoClickerAmount;
   document.getElementById("money").innerHTML = "Money: $" + money;
-  console.log("Sand Bought!");
+  console.log("Sand Bosught!");
 }
 
 function sellPeanut(soldGlassCubes) {
@@ -112,9 +113,6 @@ function sellPeanut(soldGlassCubes) {
 
 function buySomething(cash) {
   money -= cash;
-}
-function changeCubeSize() {
-  console.log("cube size changed");
 }
 
 function upgrade() {
