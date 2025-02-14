@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js"></script>
 </head>
-<body onload="onload()">
+<scipt></scipt>
+<body onload="updateScreen()">
     <h1 class="text" id="heading">Glass</h1>
     <hr>
     <div id="leftcolumn">
@@ -21,17 +22,19 @@
             <p class="text" id="money">Money: $0</p>
             <p class="text" id="UnsoldGlassCubes">Unsold Glass Cubes: 0</p>
             <p class="text" id="dollarspersecond">Glass Cubes sold per second: 0</p>
-            <p class="text" id="pricePerCube">Price Per Glass Cube: $2</p>
+            <p class="text" id="pricePerCube">Price Per Glass Cube: $1</p>
+            <button class="button" id="lowerpricebutton" onclick="changePrice(false)">lower price</button>
+            <button class="button" id="increasepricebutton" onclick="changePrice(true)">raise price</button>
             <p class="text" id="demand">Public Demand: 100%</p>
             <p class="text" id="size">Cube Size: 100%</p>
-            <button class="button" id="lowersizebutton" onclick="changeCubeSize(false)">Lower Size</button>
-            <button class="button" id="increasesizebutton" onclick="changeCubeSize(true)">Increase Size</button>
+            <button class="button" id="lowersizebutton" onclick="changeCubeSize(false)">lower</button>
+            <button class="button" id="increasesizebutton" onclick="changeCubeSize(true)">raise</button>
             <p class="text" id="pricePerCube">Price Per Glass Cube: $2</p>
          
         </div>  
         <hr>
         <div id="buyingsand">
-            <button class="button" onclick="buySand()">Buy Sand</button>
+            <button class="button" onclick="buySand()">Sand</button>
             <span class="text" id="sandAmount">1500 lbs</span>
             <p class="text" id="sandPrice">Cost: </p>
 

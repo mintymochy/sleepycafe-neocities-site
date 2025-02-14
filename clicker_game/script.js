@@ -17,23 +17,29 @@ let sandPrice = [20, 17, 15, 12, 11, 18, 19];
 let sandprice = 20;
 let boughtSand = 1500;
 const sandPriceTimer = 10000;
+let cubesize = 1;
 
 //onload
-function onload() {
+function updateScreen() {
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
   document.getElementById("money").innerHTML = "Money: $" + money;
   document.getElementById("UnsoldGlassCubes").innerHTML =
     "Unsold Glass Cubes: " + glass;
   document.getElementById("glassAmount").innerHTML =
     "Glass Cubes: " + totalGlass;
-  console.log("Main.js Loaded again!");
+  document.getElementById("sandAmount").innerHTML = sand + " lbs";
+  document.getElementById("pricePerCube").innerHTML =
+    "Price Per Glass Cube: $" + money;
+  document.getElementById("demand").innerHTML =
+    "Public Demand: " + (demand * 100).toFixed(0) + "%";
+  document.getElementById("size").innerHTML =
+    "Cube Size: " + (cubesize * 100).toFixed(0) + "%";
 }
 
 //changing the sand price every 10? seconds
 setInterval(function () {
   sandprice = sandPrice[Math.floor(Math.random() * 7)];
-  document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
-  document.getElementById("money").innerHTML = "Money: $" + money;
+  updateScreen();
   console.log("sold cube");
 }, sandPriceTimer);
 
@@ -41,11 +47,9 @@ setInterval(function () {
 setInterval(function () {
   if (glass > 0) {
     console.log("glass cube sold!");
-    sellPeanut(x);
-    document.getElementById("UnsoldGlassCubes").innerHTML =
-      "Unsold Glass Cubes: " + glass;
-    document.getElementById("glassAmount").innerHTML =
-      "Glass Cubes: " + totalGlass;
+    glass -= (x * demand).toFixed(3);
+    money += price;
+    updateScreen();
   }
 }, sellTime);
 
@@ -53,11 +57,7 @@ function add() {
   glass++;
   totalGlass++;
   sand -= sandused;
-  document.getElementById("UnsoldGlassCubes").innerHTML =
-    "Unsold Glass Cubes: " + glass;
-  document.getElementById("glassAmount").innerHTML =
-    "Glass Cubes: " + totalGlass;
-  document.getElementById("sandAmount").innerHTML = sand + " lbs";
+  updateScreen();
   console.log("glass cube made!");
 }
 
@@ -66,9 +66,7 @@ setInterval(function () {
   glass += autoClickerAmount * baseMultiplier;
   sand -= sandused * autoClickerAmount;
   totalGlass += autoClickerAmount * baseMultiplier;
-  document.getElementById("UnsoldGlassCubes").innerHTML =
-    "Unsold Glass Cubes:  " + glass;
-  document.getElementById("sandAmount").innerHTML = sand + " lbs";
+  updateScreen();
   console.log("autoclicker clicked");
 }, time);
 
@@ -77,22 +75,30 @@ function buyAutoClicker() {
     autoClickerAmount++;
     money -= autoClickerPrice;
   }
-  document.getElementById("autoClickers").innerHTML = autoClickerAmount;
-  document.getElementById("money").innerHTML = "Money: $" + money;
+  updateScreen();
   console.log("Autoclicker Bought!");
+}
+function changePrice(x) {
+  if (x) {
+    price += 0.01;
+  } else {
+    price -= 0.01;
+  }
+  updateScreen();
 }
 
 //change the size of the cubes
 function changeCubeSize(x) {
   if (x) {
     demand += 0.05;
+    cubesize += 0.1;
     console.log("size up");
   } else {
     demand -= 0.05;
+    cubesize -= 0.1;
     console.log("size down");
   }
-  document.getElementById("demand").innerHTML =
-    "Public Demand: " + demand.toFixed(5) * 100 + "%";
+  updateScreen();
 }
 
 function buySand() {
@@ -100,19 +106,8 @@ function buySand() {
     sand += boughtSand;
     money -= sandprice;
   }
-  document.getElementById("autoClickers").innerHTML = autoClickerAmount;
-  document.getElementById("money").innerHTML = "Money: $" + money;
+  updateScreen();
   console.log("Sand Bosught!");
-}
-
-function sellPeanut(soldGlassCubes) {
-  glass -= demand;
-  money += demand * price;
-  document.getElementById("money").innerHTML = "Money: $" + money;
-}
-
-function buySomething(cash) {
-  money -= cash;
 }
 
 function upgrade() {

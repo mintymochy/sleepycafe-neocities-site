@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Glass Clicker Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        console.log("Glass Clicker Game Loaded!");
+
+        let money = 1000;
+        let glass = 0;
+        let totalGlass = 0;
+        let productionRate = 1;
+        let demand = 1.0;
+        let price = 1.0;
+        let sand = 1500;
+        const sandUsedPerGlass = 5;
+        let autoClickers = 0;
+        let autoClickerCost = 50;
+        let aiFactory = 0;
+        let aiFactoryCost = 500;
+        let marketingLevel = 0;
+        let marketingCost = 100;
+
+        function updateUI() {
+            document.getElementById("money").innerText = `Money: $${money.toFixed(2)}`;
+            document.getElementById("glassAmount").innerText = `Glass Cubes: ${totalGlass}`;
+            document.getElementById("unsoldGlass").innerText = `Unsold Glass: ${glass}`;
+            document.getElementById("demand").innerText = `Market Demand: ${(demand * 100).toFixed(0)}%`;
+            document.getElementById("glassPrice").innerText = `Price: $${price.toFixed(2)}`;
+            document.getElementById("sandAmount").innerText = `Sand: ${sand} lbs`;
+            document.getElementById("autoClickers").innerText = `Auto Clickers: ${autoClickers}`;
+            document.getElementById("aiFactory").innerText = `AI Factories: ${aiFactory}`;
+        }
+
+        function produceGlass() {
+            if (sand >= sandUsedPerGlass) {
+                glass += productionRate;
+                totalGlass += productionRate;
+                sand -= sandUsedPerGlass;
+                updateUI();
+            }
+        }
+
+        setInterval(() => {
+            if (sand >= sandUsedPerGlass * autoClickers) {
+                glass += autoClickers;
+                totalGlass += autoClickers;
+                sand -= sandUsedPerGlass * autoClickers;
+                updateUI();
+            }
+        }, 1000);
+
+        setInterval(() => {
+            if (aiFactory > 0) {
+                let autoProduction = aiFactory * 5;
+                let autoSales = Math.min(glass, aiFactory * 3);
+                glass -= autoSales;
+                totalGlass += autoProduction;
+                money += autoSales * price;
+                updateUI();
+            }
+        }, 2000);
+
+        setInterval(() => {
+            if (glass > 0) {
+                let sold = Math.min(glass, demand * 10);
+                glass -= sold;
+                money += sold * price;
+                updatePrice();
+                updateUI();
+            }
+        }, 2000);
+
+        function updatePrice() {
+            if (glass > 50) price -= 0.1;
+            else if (glass < 10) price += 0.2;
+            price = Math.max(price, 0.5);
+        }
+
+        function buyAutoClicker() {
+            if (money >= autoClickerCost) {
+                money -= autoClickerCost;
+                autoClickers++;
+                autoClickerCost *= 1.15;
+                updateUI();
+            }
+        }
+
+        function buyAIFactory() {
+            if (money >= aiFactoryCost) {
+                money -= aiFactoryCost;
+                aiFactory++;
+                aiFactoryCost *= 1.2;
+                updateUI();
+            }
+        }
+
+        function runMarketingCampaign() {
+            if (money >= marketingCost) {
+                money -= marketingCost;
+                demand += 0.1;
+                marketingCost *= 1.25;
+                updateUI();
+            }
+        }
+
+        function buySand() {
+            if (money >= 20) {
+                sand += 1500;
+                money -= 20;
+                updateUI();
+            }
+        }
+
+        setInterval(() => {
+            let eventChance = Math.random();
+            if (eventChance < 0.2) {
+                let eventType = Math.random();
+                if (eventType < 0.5) {
+                    demand += 0.3;
+                    console.log("Big Order Received! Demand increased.");
+                } else {
+                    demand -= 0.2;
+                    console.log("Market Slump! Demand decreased.");
+                }
+                updateUI();
+            }
+        }, 15000);
+    </script>
+</head>
+
+<body onload="updateUI()">
+    <h1>Glass Clicker</h1>
+    <p id="money">Money: $1000</p>
+    <p id="glassAmount">Glass Cubes: 0</p>
+    <p id="unsoldGlass">Unsold Glass: 0</p>
+    <p id="demand">Market Demand: 100%</p>
+    <p id="glassPrice">Price: $1.00</p>
+    <p id="sandAmount">Sand: 1500 lbs</p>
+
+    <button onclick="produceGlass()">Make Glass</button>
+    <button onclick="buyAutoClicker()">Buy Auto Glassmaker ($50)</button>
+    <button onclick="buyAIFactory()">Buy AI Factory ($500)</button>
+    <button onclick="runMarketingCampaign()">Run Marketing Campaign ($100)</button>
+    <button onclick="buySand()">Buy Sand ($20)</button>
+</body>
+
+</html>
