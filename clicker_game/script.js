@@ -19,17 +19,17 @@ let boughtSand = 1500;
 const sandPriceTimer = 10000;
 let cubesize = 1;
 
-//onload
+//onloadknow
 function updateScreen() {
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
-  document.getElementById("money").innerHTML = "Money: $" + money;
+  document.getElementById("money").innerHTML = "Money: $" + money.toFixed(2);
   document.getElementById("UnsoldGlassCubes").innerHTML =
-    "Unsold Glass Cubes: " + glass;
+    "Unsold Glass Cubes: " + glass.toFixed(0);
   document.getElementById("glassAmount").innerHTML =
     "Glass Cubes: " + totalGlass;
   document.getElementById("sandAmount").innerHTML = sand + " lbs";
   document.getElementById("pricePerCube").innerHTML =
-    "Price Per Glass Cube: $" + money;
+    "Price Per Glass Cube: $" + price.toFixed(2);
   document.getElementById("demand").innerHTML =
     "Public Demand: " + (demand * 100).toFixed(0) + "%";
   document.getElementById("size").innerHTML =
