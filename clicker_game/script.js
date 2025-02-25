@@ -19,7 +19,7 @@ let boughtSand = 1500;
 const sandPriceTimer = 10000;
 let cubesize = 1;
 
-//onloadknow
+//onload/update screen function
 function updateScreen() {
   document.getElementById("sandPrice").innerHTML = "Cost: $" + sandprice;
   document.getElementById("money").innerHTML = "Money: $" + money.toFixed(2);
@@ -107,7 +107,7 @@ function buySand() {
     money -= sandprice;
   }
   updateScreen();
-  console.log("Sand Bosught!");
+  console.log("Sand Bought!");
 }
 
 function upgrade() {
