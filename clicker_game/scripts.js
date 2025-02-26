@@ -7,8 +7,8 @@ let baseMultiplier = 1;
 let autoClickerAmount = 0;
 let autoClickerPrice = 10;
 let x = 1;
-let demand = 1.0;
-let price = 1.0;
+let demand = 0.4;
+let price = 0.25;
 let sand = 1500;
 const sandused = 5;
 let time = 1000;
@@ -36,7 +36,7 @@ function updateScreen() {
     "Cube Size: " + (cubesize * 100).toFixed(0) + "%";
 }
 
-//changing the sand price every 10? seconds
+//changing the sand price every 10 seconds
 setInterval(function () {
   sandprice = sandPrice[Math.floor(Math.random() * 7)];
   updateScreen();
@@ -80,8 +80,10 @@ function buyAutoClicker() {
 }
 function changePrice(x) {
   if (x) {
+    demand -= 0.1;
     price += 0.01;
   } else {
+    demand += 0.1;
     price -= 0.01;
   }
   updateScreen();
