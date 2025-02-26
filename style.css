@@ -1,7 +1,18 @@
-
 body {
   background-color: #000;
+  color: #fff;
 }
+
 text {
   color: #fff;
+  
+}
+
+hr {
+  color: white;
+}
+
+#profileArea {
+
+  text-align: center;
 }
